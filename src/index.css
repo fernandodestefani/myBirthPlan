@@ -52,7 +52,7 @@ form {
 
 form label {
   display: block;
-  margin-top: 12px;
+  margin-top: 24px;
   margin-bottom: 4px;
 }
 
@@ -61,6 +61,24 @@ form input {
   padding: 8px;
   border: 2px solid pink;
   border-radius: 11px;
+}
+
+fieldset {
+  border: none;
+  margin: 24px 0;
+  padding: 0;
+}
+
+legend {
+
+}
+
+fieldset label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-right: 16px;
+  margin-top: 8px;
 }
 
 span {
