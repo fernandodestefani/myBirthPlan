@@ -1,5 +1,5 @@
 import { ActionButtons } from "./components/ActionButtons";
-import { BirthPlanForm } from "./components/BirthPlanForm";
+import BirthPlanForm from "./components/BirthPlanForm";
 import { Header } from "./components/Header";
 import { Logo } from "./components/Logo";
 

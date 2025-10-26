@@ -16,6 +16,15 @@ export default function BirthPlanForm() {
       />
 
       <InputField
+        label="Baby's Name"
+        id="babyName"
+        name="babyName"
+        type="text"
+        placeholder="Enter the baby's name"
+        title="Enter the baby's name"
+      />
+
+      <InputField
         label="Expected Due Date"
         id="dueDate"
         name="dueDate"
@@ -44,13 +53,41 @@ export default function BirthPlanForm() {
         ]}
       />
 
+      <RadioGroup
+        legend="Birth Type Preference"
+        name="birthTypePreference"
+        required={true}
+        options={[
+          { value: "vaginal", label: "Vaginal birth", isFirst: true },
+          { value: "cesarean", label: "Cesarean" },
+        ]}
+      />
+
       <CheckboxGroup
         legend="Environment Preferences"
         name="environment"
         options={[
-          { value: "dimLights", label: "I prefer dim lights" },
-          { value: "quietRoom", label: "I prefer a quiet room" },
-          { value: "music", label: "I would like to listen to music" },
+          { value: "dimLights", label: "Dim lights" },
+          { value: "quietRoom", label: "Quiet room" },
+          { value: "music", label: "Music" },
+        ]}
+      />
+
+      <RadioGroup
+        legend="Eating During Labor"
+        name="eatingPreference"
+        required={true}
+        options={[
+          {
+            value: "eatFreely",
+            label: "Eat freely according to tolerance",
+            isFirst: true,
+          },
+          { value: "fasting", label: "Prefer to stay fasting" },
+          {
+            value: "decideDuringLabor",
+            label: "Decide during labor",
+          },
         ]}
       />
 
@@ -61,25 +98,150 @@ export default function BirthPlanForm() {
         options={[
           {
             value: "freeMovement",
-            label: "I would like to have the freedom to walk and move",
+            label: "Freedom to walk and move",
             isFirst: true,
           },
-          { value: "mostlyBed", label: "I prefer to stay mostly in bed" },
+          { value: "mostlyBed", label: "Prefer mostly in bed" },
           {
             value: "decideDuringLabor",
-            label: "I prefer to decide during labor",
+            label: "Decide during labor",
           },
         ]}
       />
 
-      <CheckboxGroup legend="Relief Options (Non-Pharmacological)" name="painRelief" options={[{value: "bath", label: "Bath"}, 
-        {value: "massage", label: "Bath"},
-        {value: "birthingBall", label: "Birthing ball"},
-        {value: "squats", label: "Squats"},
-        {value: "walking", label: "Walking/ Deambulation"},
-        {value: "breathingTechniques", label: "Breathing Techniques"},
-        {value: "decideOnSpot", label: "Prefer to decide on the spot"}
-      ]}/>  
+      <CheckboxGroup
+        legend="Relief Options (Non-Pharmacological)"
+        name="painRelief"
+        options={[
+          { value: "bath", label: "Bath" },
+          { value: "massage", label: "Bath" },
+          { value: "birthingBall", label: "Birthing ball" },
+          { value: "squats", label: "Squats" },
+          { value: "walking", label: "Walking/ Deambulation" },
+          { value: "breathingTechniques", label: "Breathing Techniques" },
+          { value: "decideOnSpot", label: "Prefer to decide on the spot" },
+        ]}
+      />
+
+      <RadioGroup
+        legend="Medication for pain relief"
+        name="medicationPainRelief"
+        required={true}
+        options={[
+          {
+            value: "asSoonAsPossible",
+            label: "As soon as possible",
+            isFirst: true,
+          },
+          { value: "ifUncomfortable", label: "If I feel uncomfortable" },
+          {
+            value: "onlyIfRequested",
+            label: "Only if I request it",
+          },
+          {
+            value: "decideDuringLabor",
+            label: "Decide during labor",
+          },
+        ]}
+      />
+
+      <RadioGroup
+        legend="Preferred Position During Expulsive Phase"
+        name="expulsivePosition"
+        required={true}
+        options={[
+          {
+            value: "semiReclined",
+            label: "Semi-reclined in bed",
+            isFirst: true,
+          },
+          { value: "squatting", label: "Squatting" },
+          { value: "supportedSquat", label: "Squatting with support" },
+          { value: "birthingStool", label: "Sitting on birthing stool" },
+          { value: "handsAndKnees", label: "On all fours (Gaskin)" },
+          { value: "sideLying", label: "Lying on the side" },
+          { value: "standing", label: "Standing" },
+          {
+            value: "freedomToChoose",
+            label: "Decide during labor",
+          },
+          {
+            value: "noPreference",
+            label: "No preference, I would like the team to guide me",
+          },
+        ]}
+      />
+
+      <RadioGroup
+        legend="Episiotomy Preference (a surgical cut made in the area between the vagina and the anus during childbirth to enlarge the vaginal opening)"
+        name="episiotomyPreference"
+        required={true}
+        options={[
+          {
+            value: "lastResort",
+            label: "Episiotomy only as a last resort",
+            isFirst: true,
+          },
+          {
+            value: "preferEpisiotomy",
+            label: "Episiotomy over natural tearing",
+          },
+          {
+            value: "preferNaturalTear",
+            label: "Natural tearing over episiotomy",
+          },
+          { value: "teamDecision", label: "I prefer the team to decide" },
+        ]}
+      />
+
+      <RadioGroup
+        legend="Umbilical Cord Cutting Preference"
+        name="cordCuttingPreference"
+        required={true}
+        options={[
+          {
+            value: "partnerCuts",
+            label: "I would like my birth companion/partner to cut it",
+            isFirst: true,
+          },
+          {
+            value: "iCut",
+            label: "I would like to cut it myself",
+          },
+          { value: "noPreference", label: "I have no preference" },
+        ]}
+      />
+
+      <RadioGroup
+        legend="Placenta Viewing Preference"
+        name="placentaPreference"
+        required={true}
+        options={[
+          {
+            value: "seePlacenta",
+            label: "I would like to see the placenta after it is delivered",
+            isFirst: true,
+          },
+          {
+            value: "notSeePlacenta",
+            label: "I do not want to see the placenta",
+          },
+          { value: "specialRequest", label: "I have a special request" },
+        ]}
+      />
+
+      <fieldset>
+        <legend>Other Preferences / Notes</legend>
+        <label htmlFor="additionalNotes">
+          Please write any additional preferences or important notes here:
+        </label>
+        <textarea
+          id="additionalNotes"
+          name="additionalNotes"
+          rows="6"
+          placeholder="Example: I would like to touch my baby’s head during crowning (the moment when the baby’s head becomes visible)..."
+        ></textarea>
+      </fieldset>
 
       <p>These preferences may change depending on medical needs</p>
     </form>

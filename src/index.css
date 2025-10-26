@@ -84,3 +84,7 @@ fieldset label {
 span {
   color: red;
 }
+
+fieldset textarea {
+  display: block;
+}
