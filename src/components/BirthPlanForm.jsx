@@ -145,32 +145,23 @@ export default function BirthPlanForm() {
         ]}
       />
 
-      <RadioGroup
-        legend="Preferred Position During Expulsive Phase"
-        name="expulsivePosition"
-        required={true}
-        options={[
-          {
-            value: "semiReclined",
-            label: "Semi-reclined in bed",
-            isFirst: true,
-          },
-          { value: "squatting", label: "Squatting" },
-          { value: "supportedSquat", label: "Squatting with support" },
-          { value: "birthingStool", label: "Sitting on birthing stool" },
-          { value: "handsAndKnees", label: "On all fours (Gaskin)" },
-          { value: "sideLying", label: "Lying on the side" },
-          { value: "standing", label: "Standing" },
-          {
-            value: "freedomToChoose",
-            label: "Decide during labor",
-          },
-          {
-            value: "noPreference",
-            label: "No preference, I would like the team to guide me",
-          },
-        ]}
-      />
+      <label htmlFor="expulsivePosition">
+        Preferred Position During Expulsive Phase<span>*</span>:
+        <select name="expulsivePosition" id="expulsivePosition" required>
+          <option value="" disabled>
+            Select an option
+          </option>
+          <option value="semiReclined">Semi-reclined in bed</option>
+          <option value="squatting">Squatting</option>
+          <option value="supportedSquat">Squatting with support</option>
+          <option value="birthingStool">Birthing stool</option>
+          <option value="handsAndKnees">On all fours (Gaskin)</option>
+          <option value="sideLying">Side-lying</option>
+          <option value="standing">Standing</option>
+          <option value="freedomToChoose">Decide during labor</option>
+          <option value="noPreference">No preference</option>
+        </select>
+      </label>
 
       <RadioGroup
         legend="Episiotomy Preference (a surgical cut made in the area between the vagina and the anus during childbirth to enlarge the vaginal opening)"
@@ -267,23 +258,19 @@ export default function BirthPlanForm() {
         options={[
           {
             value: "team-present-mother",
-            label:
-              "Staff bath — I’m present",
+            label: "Staff bath — I’m present",
           },
           {
             value: "team-present-support",
-            label:
-              "Staff bath — Support person present",
+            label: "Staff bath — Support person present",
           },
           {
             value: "team-no-presence",
-            label:
-              "Staff bath — No presence needed",
+            label: "Staff bath — No presence needed",
           },
           {
             value: "family-with-supervision",
-            label:
-              "Family bath with staff supervision",
+            label: "Family bath with staff supervision",
           },
         ]}
       />

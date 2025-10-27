@@ -63,6 +63,10 @@ form input {
   border-radius: 11px;
 }
 
+form select {
+  display: block;
+}
+
 fieldset {
   border: none;
   margin: 24px 0;
