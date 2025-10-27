@@ -44,11 +44,51 @@ body {
   line-height: 1;
   background-color: #fff;
   color:#444;
+  max-width: 120rem;
+  margin: 0 auto;
   /* overflow-x: hidden; */
 }
 
+.logo {
+  font-size: 24px;
+  font-weight: 800;
+  background-color: #f9a8d4;
+  color: #fff;
+  padding: 8px 12px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px;
+}
+
+.header__img {
+  width: 175px;
+  height: auto;
+}
+
+.header__title {
+  font-size: 30px;
+  letter-spacing: -0.5px;
+  line-height: 1.8;
+  font-weight: 500;
+}
+
+.header__subtitle {
+  letter-spacing: 0.5;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.header__subtitle strong {
+  color: #be185d;
+}
+
 form {
-  margin: 0 auto;
+  
 }
 
 form label {

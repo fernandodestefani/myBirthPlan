@@ -1,3 +1,3 @@
 export function Logo() {
-  return <div>FD</div>;
+  return <div className="logo">FD</div>;
 }
