@@ -114,7 +114,7 @@ export default function BirthPlanForm() {
         name="painRelief"
         options={[
           { value: "bath", label: "Bath" },
-          { value: "massage", label: "Bath" },
+          { value: "massage", label: "Massage" },
           { value: "birthingBall", label: "Birthing ball" },
           { value: "squats", label: "Squats" },
           { value: "walking", label: "Walking/ Deambulation" },
@@ -201,14 +201,14 @@ export default function BirthPlanForm() {
         options={[
           {
             value: "partnerCuts",
-            label: "I would like my birth companion/partner to cut it",
+            label: "My partner cuts the cord",
             isFirst: true,
           },
           {
             value: "iCut",
-            label: "I would like to cut it myself",
+            label: "I cut the cord",
           },
-          { value: "noPreference", label: "I have no preference" },
+          { value: "noPreference", label: "No preference" },
         ]}
       />
 
@@ -227,6 +227,64 @@ export default function BirthPlanForm() {
             label: "I do not want to see the placenta",
           },
           { value: "specialRequest", label: "I have a special request" },
+        ]}
+      />
+
+      <RadioGroup
+        legend="Imediate Contact with the Baby"
+        name="contact"
+        required={true}
+        options={[
+          {
+            value: "skin-to-skin",
+            label: "Placed directly on my chest for skin-to-skin contact",
+          },
+          { value: "no-preference", label: "No preference" },
+        ]}
+      />
+
+      <RadioGroup
+        legend="Feeding within the first hour after birth"
+        name="feeding"
+        required={true}
+        options={[
+          {
+            value: "breastfeed-1h",
+            label: "I want to try breastfeeding within the first hour",
+          },
+          {
+            value: "unable-notdesired",
+            label: "I am unable or do not wish to breastfeed",
+          },
+          { value: "no-preference", label: "No preference" },
+        ]}
+      />
+
+      <RadioGroup
+        legend="Regarding the baby’s first bath"
+        name="first-bath"
+        required={true}
+        options={[
+          {
+            value: "team-present-mother",
+            label:
+              "Staff bath — I’m present",
+          },
+          {
+            value: "team-present-support",
+            label:
+              "Staff bath — Support person present",
+          },
+          {
+            value: "team-no-presence",
+            label:
+              "Staff bath — No presence needed",
+          },
+          {
+            value: "family-with-supervision",
+            label:
+              "Family bath with staff supervision",
+          },
         ]}
       />
 
