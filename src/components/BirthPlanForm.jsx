@@ -1,9 +1,14 @@
+import { BirthFormNote } from "./BirthFormNote";
+import { CheckboxGroup } from "./CheckboxGroup";
+import { InputField } from "./InputField";
+import { RadioGroup } from "./RadioGroup";
+
 export default function BirthPlanForm() {
   return (
     <form>
-      <em className="birth-form__note">
+      <BirthFormNote>
         Fields marked with <span>*</span> are required.
-      </em>
+      </BirthFormNote>
 
       <InputField
         label="Mother's Name"
@@ -296,75 +301,9 @@ export default function BirthPlanForm() {
         ></textarea>
       </fieldset>
 
-      <em className="birth-form__note">These preferences may change depending on medical needs</em>
+      <BirthFormNote>
+        These preferences may change depending on medical needs
+      </BirthFormNote>
     </form>
-  );
-}
-
-function InputField({
-  label,
-  name,
-  type,
-  placeholder = "",
-  required = false,
-  title = "",
-}) {
-  return (
-    <div className="birth-form__input">
-      <label htmlFor={name} className="input-field__label">
-        {label}
-        {required && <span>*</span>}:
-      </label>
-      <input
-        type={type}
-        id={name}
-        name={name}
-        placeholder={placeholder}
-        required={required}
-        title={title}
-        className="input-field__input"
-      />
-    </div>
-  );
-}
-
-function RadioGroup({ legend, name, options, required = false, value }) {
-  return (
-    <fieldset className="radio-group">
-      <legend className="radio-group__legend">
-        {legend}
-        {required && <span>*</span>}:
-      </legend>
-
-      {options.map((option) => (
-        <label key={option.value} className="radio-group__label">
-          <input
-            type="radio"
-            name={name}
-            required={required && option.isFirst}
-            className="radio-group__input"
-          />
-          {option.label}
-        </label>
-      ))}
-    </fieldset>
-  );
-}
-
-function CheckboxGroup({ legend, options }) {
-  return (
-    <fieldset className="checkbox-group">
-      <legend className="checkbox-group__legend">{legend}</legend>
-      {options.map((option) => (
-        <label key={option.value} className="checkbox-group__label">
-          <input
-            type="checkbox"
-            name={option.value}
-            className="checkbox-group__input"
-          />
-          {option.label}
-        </label>
-      ))}
-    </fieldset>
   );
 }
