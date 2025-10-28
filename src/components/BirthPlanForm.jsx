@@ -1,7 +1,7 @@
 export default function BirthPlanForm() {
   return (
     <form>
-      <em>
+      <em className="birth-form__note">
         Fields marked with <span>*</span> are required.
       </em>
 
@@ -145,9 +145,17 @@ export default function BirthPlanForm() {
         ]}
       />
 
-      <label htmlFor="expulsivePosition">
-        Preferred Position During Expulsive Phase<span>*</span>:
-        <select name="expulsivePosition" id="expulsivePosition" required>
+      <div className="select-field">
+        <label htmlFor="expulsivePosition" className="select-field__label">
+          Preferred Position During Expulsive Phase<span>*</span>:
+        </label>
+
+        <select
+          name="expulsivePosition"
+          id="expulsivePosition"
+          required
+          className="select-field__select"
+        >
           <option value="" disabled>
             Select an option
           </option>
@@ -161,7 +169,7 @@ export default function BirthPlanForm() {
           <option value="freedomToChoose">Decide during labor</option>
           <option value="noPreference">No preference</option>
         </select>
-      </label>
+      </div>
 
       <RadioGroup
         legend="Episiotomy Preference (a surgical cut made in the area between the vagina and the anus during childbirth to enlarge the vaginal opening)"
@@ -275,20 +283,20 @@ export default function BirthPlanForm() {
         ]}
       />
 
-      <fieldset>
-        <legend>Other Preferences / Notes</legend>
-        <label htmlFor="additionalNotes">
+      <fieldset className="textarea-field">
+        <label htmlFor="additionalNotes" className="textarea-field__label">
           Please write any additional preferences or important notes here:
         </label>
         <textarea
           id="additionalNotes"
           name="additionalNotes"
-          rows="6"
+          rows="4"
           placeholder="Example: I would like to touch my baby’s head during crowning (the moment when the baby’s head becomes visible)..."
+          className="textarea-field__textarea"
         ></textarea>
       </fieldset>
 
-      <p>These preferences may change depending on medical needs</p>
+      <em className="birth-form__note">These preferences may change depending on medical needs</em>
     </form>
   );
 }
@@ -302,8 +310,8 @@ function InputField({
   title = "",
 }) {
   return (
-    <div>
-      <label htmlFor={name}>
+    <div className="birth-form__input">
+      <label htmlFor={name} className="input-field__label">
         {label}
         {required && <span>*</span>}:
       </label>
@@ -314,6 +322,7 @@ function InputField({
         placeholder={placeholder}
         required={required}
         title={title}
+        className="input-field__input"
       />
     </div>
   );
@@ -321,18 +330,19 @@ function InputField({
 
 function RadioGroup({ legend, name, options, required = false, value }) {
   return (
-    <fieldset>
-      <legend>
+    <fieldset className="radio-group">
+      <legend className="radio-group__legend">
         {legend}
         {required && <span>*</span>}:
       </legend>
 
       {options.map((option) => (
-        <label key={option.value}>
+        <label key={option.value} className="radio-group__label">
           <input
             type="radio"
             name={name}
             required={required && option.isFirst}
+            className="radio-group__input"
           />
           {option.label}
         </label>
@@ -343,11 +353,15 @@ function RadioGroup({ legend, name, options, required = false, value }) {
 
 function CheckboxGroup({ legend, options }) {
   return (
-    <fieldset>
-      <legend>{legend}</legend>
+    <fieldset className="checkbox-group">
+      <legend className="checkbox-group__legend">{legend}</legend>
       {options.map((option) => (
-        <label key={option.value}>
-          <input type="checkbox" name={name} />
+        <label key={option.value} className="checkbox-group__label">
+          <input
+            type="checkbox"
+            name={option.value}
+            className="checkbox-group__input"
+          />
           {option.label}
         </label>
       ))}
