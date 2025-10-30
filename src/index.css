@@ -238,3 +238,59 @@ span {
   border-color: #ec4899;
   box-shadow: 0 0 0 2px rgba(236, 72, 153, 0.2);
 }
+
+.page-container {
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+}
+
+.action-buttons {
+  display: flex;
+  gap: 2.4rem;
+  margin-top: 24px;
+  margin-bottom: 4.8rem;
+}
+
+.action-buttons button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 11px;
+  background-color: #be185d;
+  color: #fff;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.action-buttons button:hover {
+  background-color: #db2777;
+  transform: translateY(-2px);
+  box-shadow: 0 1px 4px rgba(190, 24, 93, 0.1);
+}
+
+.action-buttons button:active {
+  background-color: #9d174d;
+  transform: translateY(0);
+  box-shadow: 0 0 2px rgba(190, 24, 93, 0.1);
+}
+
+.action-buttons .reset-btn {
+  background-color: #fff;
+  color: #be185d;
+  border: 2px solid #be185d;
+}
+
+.action-buttons .reset-btn:hover {
+  background-color: #fff0f7;
+  box-shadow: 0 1px 4px rgba(190, 24, 93, 0.1);
+}
+
+.action-buttons .reset-btn:active {
+  background-color: #ffe4ef;
+  transform: translateY(0px);
+  box-shadow: 0 0 2px rgba(190, 24, 93, 0.1);
+}
+
