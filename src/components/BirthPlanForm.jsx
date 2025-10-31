@@ -3,7 +3,7 @@ import { CheckboxGroup } from "./CheckboxGroup";
 import { InputField } from "./InputField";
 import { RadioGroup } from "./RadioGroup";
 
-export default function BirthPlanForm({motherName, setMotherName, babyName, setBabyName, expectedDueDate, setExpectedDueDate, supportPerson, setSupportPerson, birthPlace, setBirthPlace}) {
+export default function BirthPlanForm({motherName, setMotherName, babyName, setBabyName, expectedDueDate, setExpectedDueDate, supportPerson, setSupportPerson, birthPlace, setBirthPlace, birthType, setBirthType, eatingDuringLabor, setEatingDuringLabor}) {
   return (
     <form>
       <BirthFormNote>
@@ -73,9 +73,11 @@ export default function BirthPlanForm({motherName, setMotherName, babyName, setB
         name="birthTypePreference"
         required={true}
         options={[
-          { value: "Vaginal", label: "Vaginal birth", isFirst: true },
+          { value: "Vaginal birth", label: "Vaginal birth", isFirst: true },
           { value: "Cesarean", label: "Cesarean" },
         ]}
+        value={birthType}
+        onChange={e => setBirthType(e.target.value)}
       />
 
       <CheckboxGroup
@@ -94,16 +96,18 @@ export default function BirthPlanForm({motherName, setMotherName, babyName, setB
         required={true}
         options={[
           {
-            value: "eatFreely",
+            value: "Eat freely according to tolerance",
             label: "Eat freely according to tolerance",
             isFirst: true,
           },
-          { value: "fasting", label: "Prefer to stay fasting" },
+          { value: "Prefer to stay fasting", label: "Prefer to stay fasting" },
           {
-            value: "decideDuringLabor",
+            value: "Decide during labor",
             label: "Decide during labor",
           },
         ]}
+        value={eatingDuringLabor}
+        onChange={e => setEatingDuringLabor(e.target.value)}
       />
 
       <RadioGroup
