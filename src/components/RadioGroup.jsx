@@ -1,4 +1,4 @@
-export function RadioGroup({ legend, name, options, required = false, value }) {
+export function RadioGroup({ legend, name, options, required = false, value, onChange }) {
   return (
     <fieldset className="radio-group">
       <legend className="radio-group__legend">
@@ -13,6 +13,9 @@ export function RadioGroup({ legend, name, options, required = false, value }) {
             name={name}
             required={required && option.isFirst}
             className="radio-group__input"
+            value={option.value}
+            checked={value === option.value}
+            onChange={onChange}
           />
           {option.label}
         </label>

@@ -3,7 +3,7 @@ import { CheckboxGroup } from "./CheckboxGroup";
 import { InputField } from "./InputField";
 import { RadioGroup } from "./RadioGroup";
 
-export default function BirthPlanForm({motherName, setMotherName}) {
+export default function BirthPlanForm({motherName, setMotherName, babyName, setBabyName, expectedDueDate, setExpectedDueDate, supportPerson, setSupportPerson, birthPlace, setBirthPlace}) {
   return (
     <form>
       <BirthFormNote>
@@ -29,6 +29,8 @@ export default function BirthPlanForm({motherName, setMotherName}) {
         type="text"
         placeholder="Enter the baby's name"
         title="Enter the baby's name"
+        value={babyName}
+        onChange={e => setBabyName(e.target.value)}
       />
 
       <InputField
@@ -38,6 +40,8 @@ export default function BirthPlanForm({motherName, setMotherName}) {
         type="date"
         placeholder="Select your due date"
         title="Select your due date"
+        value={expectedDueDate}
+        onChange={e => setExpectedDueDate(e.target.value)}
       />
 
       <InputField
@@ -47,6 +51,8 @@ export default function BirthPlanForm({motherName, setMotherName}) {
         type="text"
         placeholder="Enter companion's name"
         title="Enter the name of your support person"
+        value={supportPerson}
+        onChange={e => setSupportPerson(e.target.value)}
       />
 
       <RadioGroup
@@ -54,10 +60,12 @@ export default function BirthPlanForm({motherName, setMotherName}) {
         name="birthPlace"
         required={true}
         options={[
-          { value: "hospital", label: "Hospital", isFirst: true },
-          { value: "birthCenter", label: "Birth Center" },
-          { value: "home", label: "Home" },
+          { value: "Hospital", label: "Hospital", isFirst: true },
+          { value: "BirthCenter", label: "Birth Center" },
+          { value: "Home", label: "Home" },
         ]}
+        value={birthPlace}
+        onChange={e => setBirthPlace(e.target.value)}
       />
 
       <RadioGroup
@@ -65,8 +73,8 @@ export default function BirthPlanForm({motherName, setMotherName}) {
         name="birthTypePreference"
         required={true}
         options={[
-          { value: "vaginal", label: "Vaginal birth", isFirst: true },
-          { value: "cesarean", label: "Cesarean" },
+          { value: "Vaginal", label: "Vaginal birth", isFirst: true },
+          { value: "Cesarean", label: "Cesarean" },
         ]}
       />
 
