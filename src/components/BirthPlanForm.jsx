@@ -3,7 +3,7 @@ import { CheckboxGroup } from "./CheckboxGroup";
 import { InputField } from "./InputField";
 import { RadioGroup } from "./RadioGroup";
 
-export default function BirthPlanForm() {
+export default function BirthPlanForm({motherName, setMotherName}) {
   return (
     <form>
       <BirthFormNote>
@@ -18,6 +18,8 @@ export default function BirthPlanForm() {
         placeholder="Enter your full name"
         required={true}
         title="Enter your full name"
+        value={motherName}
+        onChange={e => setMotherName(e.target.value)}
       />
 
       <InputField

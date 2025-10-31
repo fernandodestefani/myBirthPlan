@@ -123,6 +123,7 @@ span {
   line-height: 1;
   font-size: 12px;
   width: 100%;
+  
 }
 
 .radio-group {
@@ -197,10 +198,15 @@ span {
   font-weight: 400;
   line-height: 1;
   font-size: 12px;
-  font-family: "Quicksand", sans-serif;
+  font-family: inherit;
   background-color: #fff;
   cursor: pointer;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease; 
+  outline: none;
+}
+
+select:focus {
+
 }
 
 .textarea-field {

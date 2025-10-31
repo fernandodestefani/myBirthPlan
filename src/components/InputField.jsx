@@ -5,6 +5,8 @@ export function InputField({
   placeholder = "",
   required = false,
   title = "",
+  value,
+  onChange,
 }) {
   return (
     <div className={`birth-form__input`}>
@@ -20,6 +22,8 @@ export function InputField({
         required={required}
         title={title}
         className="input-field__input"
+        value={value}
+        onChange={onChange}
       />
     </div>
   );
