@@ -3,7 +3,39 @@ import { CheckboxGroup } from "./CheckboxGroup";
 import { InputField } from "./InputField";
 import { RadioGroup } from "./RadioGroup";
 
-export default function BirthPlanForm({motherName, setMotherName, babyName, setBabyName, expectedDueDate, setExpectedDueDate, supportPerson, setSupportPerson, birthPlace, setBirthPlace, birthType, setBirthType, eatingDuringLabor, setEatingDuringLabor}) {
+export default function BirthPlanForm({
+  motherName,
+  setMotherName,
+  babyName,
+  setBabyName,
+  expectedDueDate,
+  setExpectedDueDate,
+  supportPerson,
+  setSupportPerson,
+  birthPlace,
+  setBirthPlace,
+  birthType,
+  setBirthType,
+  eatingDuringLabor,
+  setEatingDuringLabor,
+  mobilityDuringLabor,
+  setMobilityDuringLabor,
+  painMedication,
+  setPainMedication,
+  episiotomyPreference,
+  setEpisiotomyPreference,
+  umbilicalCordCuttingPreference, 
+  setUmbilicalCordCuttingPreference,
+  placentaViewing, 
+  setPlacentaViewing,
+  immediateContactPreference,
+  setImmediateContactPreference,
+  breastfeeding, 
+  setBreastfeeding,
+  babyFirstBath,
+  setBabyFirstBath,
+
+}) {
   return (
     <form>
       <BirthFormNote>
@@ -19,7 +51,7 @@ export default function BirthPlanForm({motherName, setMotherName, babyName, setB
         required={true}
         title="Enter your full name"
         value={motherName}
-        onChange={e => setMotherName(e.target.value)}
+        onChange={(e) => setMotherName(e.target.value)}
       />
 
       <InputField
@@ -30,7 +62,7 @@ export default function BirthPlanForm({motherName, setMotherName, babyName, setB
         placeholder="Enter the baby's name"
         title="Enter the baby's name"
         value={babyName}
-        onChange={e => setBabyName(e.target.value)}
+        onChange={(e) => setBabyName(e.target.value)}
       />
 
       <InputField
@@ -41,7 +73,7 @@ export default function BirthPlanForm({motherName, setMotherName, babyName, setB
         placeholder="Select your due date"
         title="Select your due date"
         value={expectedDueDate}
-        onChange={e => setExpectedDueDate(e.target.value)}
+        onChange={(e) => setExpectedDueDate(e.target.value)}
       />
 
       <InputField
@@ -52,7 +84,7 @@ export default function BirthPlanForm({motherName, setMotherName, babyName, setB
         placeholder="Enter companion's name"
         title="Enter the name of your support person"
         value={supportPerson}
-        onChange={e => setSupportPerson(e.target.value)}
+        onChange={(e) => setSupportPerson(e.target.value)}
       />
 
       <RadioGroup
@@ -65,7 +97,7 @@ export default function BirthPlanForm({motherName, setMotherName, babyName, setB
           { value: "Home", label: "Home" },
         ]}
         value={birthPlace}
-        onChange={e => setBirthPlace(e.target.value)}
+        onChange={(e) => setBirthPlace(e.target.value)}
       />
 
       <RadioGroup
@@ -77,7 +109,7 @@ export default function BirthPlanForm({motherName, setMotherName, babyName, setB
           { value: "Cesarean", label: "Cesarean" },
         ]}
         value={birthType}
-        onChange={e => setBirthType(e.target.value)}
+        onChange={(e) => setBirthType(e.target.value)}
       />
 
       <CheckboxGroup
@@ -107,7 +139,7 @@ export default function BirthPlanForm({motherName, setMotherName, babyName, setB
           },
         ]}
         value={eatingDuringLabor}
-        onChange={e => setEatingDuringLabor(e.target.value)}
+        onChange={(e) => setEatingDuringLabor(e.target.value)}
       />
 
       <RadioGroup
@@ -116,16 +148,18 @@ export default function BirthPlanForm({motherName, setMotherName, babyName, setB
         required={true}
         options={[
           {
-            value: "freeMovement",
+            value: "Freedom to walk and move",
             label: "Freedom to walk and move",
             isFirst: true,
           },
-          { value: "mostlyBed", label: "Prefer mostly in bed" },
+          { value: "Prefer mostly in bed", label: "Prefer mostly in bed" },
           {
-            value: "decideDuringLabor",
+            value: "Decide during labor",
             label: "Decide during labor",
           },
         ]}
+        value={mobilityDuringLabor}
+        onChange={(e) => setMobilityDuringLabor(e.target.value)}
       />
 
       <CheckboxGroup
@@ -148,20 +182,25 @@ export default function BirthPlanForm({motherName, setMotherName, babyName, setB
         required={true}
         options={[
           {
-            value: "asSoonAsPossible",
+            value: "As soon as possible",
             label: "As soon as possible",
             isFirst: true,
           },
-          { value: "ifUncomfortable", label: "If I feel uncomfortable" },
           {
-            value: "onlyIfRequested",
+            value: "If I feel uncomfortable",
+            label: "If I feel uncomfortable",
+          },
+          {
+            value: "Only if I request it",
             label: "Only if I request it",
           },
           {
-            value: "decideDuringLabor",
+            value: "Decide during labor",
             label: "Decide during labor",
           },
         ]}
+        value={painMedication}
+        onChange={(e) => setPainMedication(e.target.value)}
       />
 
       <div className="select-field">
@@ -196,20 +235,22 @@ export default function BirthPlanForm({motherName, setMotherName, babyName, setB
         required={true}
         options={[
           {
-            value: "lastResort",
+            value: "Episiotomy only as a last resort",
             label: "Episiotomy only as a last resort",
             isFirst: true,
           },
           {
-            value: "preferEpisiotomy",
+            value: "Episiotomy over natural tearing",
             label: "Episiotomy over natural tearing",
           },
           {
-            value: "preferNaturalTear",
+            value: "Natural tearing over episiotomy",
             label: "Natural tearing over episiotomy",
           },
-          { value: "teamDecision", label: "I prefer the team to decide" },
+          { value: "I prefer the team to decide", label: "I prefer the team to decide" },
         ]}
+        value={episiotomyPreference}
+        onChange={e => setEpisiotomyPreference(e.target.value)}
       />
 
       <RadioGroup
@@ -218,16 +259,18 @@ export default function BirthPlanForm({motherName, setMotherName, babyName, setB
         required={true}
         options={[
           {
-            value: "partnerCuts",
+            value: "My partner cuts the cord",
             label: "My partner cuts the cord",
             isFirst: true,
           },
           {
-            value: "iCut",
+            value: "I cut the cord",
             label: "I cut the cord",
           },
-          { value: "noPreference", label: "No preference" },
+          { value: "No preference", label: "No preference" },
         ]}
+        value={umbilicalCordCuttingPreference}
+        onChange={e => setUmbilicalCordCuttingPreference(e.target.value)}
       />
 
       <RadioGroup
@@ -236,16 +279,18 @@ export default function BirthPlanForm({motherName, setMotherName, babyName, setB
         required={true}
         options={[
           {
-            value: "seePlacenta",
+            value: "I'd like to see the placenta after it is delivered",
             label: "I would like to see the placenta after it is delivered",
             isFirst: true,
           },
           {
-            value: "notSeePlacenta",
+            value: "I do not want to see the placenta",
             label: "I do not want to see the placenta",
           },
-          { value: "specialRequest", label: "I have a special request" },
+          { value: "I have a special request", label: "I have a special request" },
         ]}
+        value={placentaViewing}
+        onChange={e => setPlacentaViewing(e.target.value)}
       />
 
       <RadioGroup
@@ -254,11 +299,13 @@ export default function BirthPlanForm({motherName, setMotherName, babyName, setB
         required={true}
         options={[
           {
-            value: "skin-to-skin",
+            value: "Placed directly on my chest for skin-to-skin contact",
             label: "Placed directly on my chest for skin-to-skin contact",
           },
-          { value: "no-preference", label: "No preference" },
+          { value: "No preference", label: "No preference" },
         ]}
+        value={immediateContactPreference}
+        onChange={e => setImmediateContactPreference(e.target.value)}
       />
 
       <RadioGroup
@@ -267,15 +314,17 @@ export default function BirthPlanForm({motherName, setMotherName, babyName, setB
         required={true}
         options={[
           {
-            value: "breastfeed-1h",
+            value: "I wanna try breastfeeding within the first hour",
             label: "I want to try breastfeeding within the first hour",
           },
           {
-            value: "unable-notdesired",
+            value: "I am unable or do not wish to breastfeed",
             label: "I am unable or do not wish to breastfeed",
           },
-          { value: "no-preference", label: "No preference" },
+          { value: "No preference", label: "No preference" },
         ]}
+        value={breastfeeding}
+        onChange={e => setBreastfeeding(e.target.value)}
       />
 
       <RadioGroup
@@ -284,22 +333,24 @@ export default function BirthPlanForm({motherName, setMotherName, babyName, setB
         required={true}
         options={[
           {
-            value: "team-present-mother",
+            value: "Staff bath — I’m present",
             label: "Staff bath — I’m present",
           },
           {
-            value: "team-present-support",
+            value: "Staff bath — Support person present",
             label: "Staff bath — Support person present",
           },
           {
-            value: "team-no-presence",
+            value: "Staff bath — No presence needed",
             label: "Staff bath — No presence needed",
           },
           {
-            value: "family-with-supervision",
+            value: "Family bath with staff supervision",
             label: "Family bath with staff supervision",
           },
         ]}
+        value={babyFirstBath}
+        onChange={e => setBabyFirstBath(e.target.value)}
       />
 
       <fieldset className="textarea-field">

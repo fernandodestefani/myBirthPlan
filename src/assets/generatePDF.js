@@ -1,7 +1,7 @@
 import jsPDF from "jspdf";
 import logoBase64 from "./logoBase64";
 
-export default function generatePDF({ motherName, babyName, expectedDueDate, supportPerson, birthPlace, birthType, eatingDuringLabor }) {
+export default function generatePDF({ motherName, babyName, expectedDueDate, supportPerson, birthPlace, birthType, eatingDuringLabor, mobilityDuringLabor, painMedication, episiotomyPreference, umbilicalCordCuttingPreference, placentaViewing, immediateContactPreference, breastfeeding, babyFirstBath }) {
   const doc = new jsPDF();
 
   // logo
@@ -32,7 +32,16 @@ export default function generatePDF({ motherName, babyName, expectedDueDate, sup
     { label: "Birth Place:", value: birthPlace },
     { label: "Birth Type:", value: birthType},
 
-    {label: "Eating:", value: eatingDuringLabor}
+    {label: "Eating:", value: eatingDuringLabor},
+    {label: "Mobility:", value: mobilityDuringLabor},
+    {label: "Pain Medication:", value: painMedication},
+    {label: "Episiotomy Preference:", value: episiotomyPreference},
+    {label: "Umbilical Cord Cutting:", value: umbilicalCordCuttingPreference},
+    {label: "Placenta Viewing:", value: placentaViewing},
+    {label: "Contact with the Baby:", value: immediateContactPreference},
+    {label: "Breastfeeding:", value: breastfeeding},
+    {label: "Baby's First Bath:", value: babyFirstBath},
+    
   ];
 
   fields.forEach((field, i) => {
@@ -41,7 +50,7 @@ export default function generatePDF({ motherName, babyName, expectedDueDate, sup
     doc.setTextColor(190, 24, 93);
     doc.text(field.label, 15, y);
     doc.setTextColor(68, 68, 68);
-    doc.text(field.value, 55, y);
+    doc.text(field.value, 65, y);
   });
 
   doc.save("my-birth-plan.pdf");

@@ -12,7 +12,16 @@ export default function App() {
   const [supportPerson, setSupportPerson] = useState("");
   const [birthPlace, setBirthPlace] = useState("");
   const [birthType, setBirthType] = useState("");
+  
   const [eatingDuringLabor, setEatingDuringLabor] = useState("");
+  const [mobilityDuringLabor, setMobilityDuringLabor] = useState("");
+  const [painMedication, setPainMedication] = useState("")
+  const [episiotomyPreference, setEpisiotomyPreference] = useState("");
+  const [umbilicalCordCuttingPreference, setUmbilicalCordCuttingPreference] = useState("");
+  const [placentaViewing, setPlacentaViewing] = useState('')
+  const [immediateContactPreference, setImmediateContactPreference] = useState("");
+  const [breastfeeding, setBreastfeeding] = useState("");
+  const [babyFirstBath, setBabyFirstBath] = useState("");
 
 
   return (
@@ -34,6 +43,22 @@ export default function App() {
         setBirthType={setBirthType}
         eatingDuringLabor={eatingDuringLabor}
         setEatingDuringLabor={setEatingDuringLabor}
+        mobilityDuringLabor={mobilityDuringLabor}
+        setMobilityDuringLabor={setMobilityDuringLabor}
+        painMedication={painMedication}
+        setPainMedication={setPainMedication}
+        episiotomyPreference={episiotomyPreference}
+        setEpisiotomyPreference={setEpisiotomyPreference}
+        umbilicalCordCuttingPreference={umbilicalCordCuttingPreference}
+        setUmbilicalCordCuttingPreference={setUmbilicalCordCuttingPreference}
+        placentaViewing={placentaViewing}
+        setPlacentaViewing={setPlacentaViewing}
+        immediateContactPreference={immediateContactPreference}
+        setImmediateContactPreference={setImmediateContactPreference}
+        breastfeeding={breastfeeding}
+        setBreastfeeding={setBreastfeeding}
+        babyFirstBath={babyFirstBath}
+        setBabyFirstBath={setBabyFirstBath}
       />
       <ActionButtons
         onGeneratePDF={() =>
@@ -44,7 +69,17 @@ export default function App() {
             supportPerson,
             birthPlace,
             birthType,
+
             eatingDuringLabor,
+            mobilityDuringLabor,
+            painMedication,
+            episiotomyPreference,
+            umbilicalCordCuttingPreference,
+            placentaViewing,
+            immediateContactPreference,
+            breastfeeding,
+            babyFirstBath,
+            
           })
         }
       />
