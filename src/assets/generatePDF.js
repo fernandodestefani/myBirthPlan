@@ -29,7 +29,7 @@ export default function generatePDF({
   const imgHeight = 25;
   const imgX = 15;
   const imgY = 15;
-  doc.addImage(logoBase64, "PNG", imgX, imgY, imgWidth, imgHeight);
+  doc.addImage(logoBase64, "JPEG", imgX, imgY, imgWidth, imgHeight);
 
   // title
   doc.setFont("quicksand", "sans-serif");
