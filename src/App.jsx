@@ -19,12 +19,42 @@ export default function App() {
   const [painMedication, setPainMedication] = useState("");
   const [laborPosition, setLaborPosition] = useState("");
   const [episiotomyPreference, setEpisiotomyPreference] = useState("");
-  const [umbilicalCordCuttingPreference, setUmbilicalCordCuttingPreference] = useState("");
-  const [placentaViewing, setPlacentaViewing] = useState('')
-  const [immediateContactPreference, setImmediateContactPreference] = useState("");
+  const [umbilicalCordCuttingPreference, setUmbilicalCordCuttingPreference] =
+    useState("");
+  const [placentaViewing, setPlacentaViewing] = useState("");
+  const [immediateContactPreference, setImmediateContactPreference] =
+    useState("");
   const [breastfeeding, setBreastfeeding] = useState("");
   const [babyFirstBath, setBabyFirstBath] = useState("");
   const [notes, setNotes] = useState("");
+
+  function handleReset() {
+    const confirmed = window.confirm(
+      "Are you sure you want to delete all items?"
+    );
+
+    if (!confirmed) return;
+
+    setMotherName("");
+    setBabyName("");
+    setExpectedDueDate("");
+    setSupportPerson("");
+    setBirthPlace("");
+    setBirthType("");
+    setEnvironmentPreferences([]);
+    setEatingDuringLabor("");
+    setMobilityDuringLabor("");
+    setReliefOptions([]);
+    setPainMedication("");
+    setLaborPosition("");
+    setEpisiotomyPreference("");
+    setUmbilicalCordCuttingPreference("");
+    setPlacentaViewing("");
+    setImmediateContactPreference("");
+    setBreastfeeding("");
+    setBabyFirstBath("");
+    setNotes("");
+  }
 
   return (
     <div>
@@ -94,6 +124,7 @@ export default function App() {
             notes,
           })
         }
+        onReset={handleReset}
       />
     </div>
   );
