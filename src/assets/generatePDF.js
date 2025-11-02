@@ -1,7 +1,25 @@
 import jsPDF from "jspdf";
 import logoBase64 from "./logoBase64";
 
-export default function generatePDF({ motherName, babyName, expectedDueDate, supportPerson, birthPlace, birthType, eatingDuringLabor, mobilityDuringLabor, painMedication, episiotomyPreference, umbilicalCordCuttingPreference, placentaViewing, immediateContactPreference, breastfeeding, babyFirstBath }) {
+export default function generatePDF({
+  motherName,
+  babyName,
+  expectedDueDate,
+  supportPerson,
+  birthPlace,
+  birthType,
+  environmentPreferences,
+  eatingDuringLabor,
+  mobilityDuringLabor,
+  reliefOptions,
+  painMedication,
+  episiotomyPreference,
+  umbilicalCordCuttingPreference,
+  placentaViewing,
+  immediateContactPreference,
+  breastfeeding,
+  babyFirstBath,
+}) {
   const doc = new jsPDF();
 
   // logo
@@ -17,7 +35,7 @@ export default function generatePDF({ motherName, babyName, expectedDueDate, sup
   doc.text("My Birth Plan", imgX + imgWidth + 10, (imgY + imgHeight) / 2 + 10);
 
   // line
-  const lineY = imgY + imgHeight + 5;
+  let lineY = imgY + imgHeight + 5;
   doc.setLineDashPattern([], 0);
   doc.setDrawColor(101, 101, 101);
   doc.setLineWidth(0.05);
@@ -30,18 +48,18 @@ export default function generatePDF({ motherName, babyName, expectedDueDate, sup
     { label: "Due Date:", value: expectedDueDate },
     { label: "Support Person:", value: supportPerson },
     { label: "Birth Place:", value: birthPlace },
-    { label: "Birth Type:", value: birthType},
-
-    {label: "Eating:", value: eatingDuringLabor},
-    {label: "Mobility:", value: mobilityDuringLabor},
-    {label: "Pain Medication:", value: painMedication},
-    {label: "Episiotomy Preference:", value: episiotomyPreference},
-    {label: "Umbilical Cord Cutting:", value: umbilicalCordCuttingPreference},
-    {label: "Placenta Viewing:", value: placentaViewing},
-    {label: "Contact with the Baby:", value: immediateContactPreference},
-    {label: "Breastfeeding:", value: breastfeeding},
-    {label: "Baby's First Bath:", value: babyFirstBath},
-    
+    { label: "Birth Type:", value: birthType },
+    { label: "Environment:", value: environmentPreferences },
+    { label: "Eating:", value: eatingDuringLabor },
+    { label: "Mobility:", value: mobilityDuringLabor },
+    { label: "Relief options:", value: reliefOptions },
+    { label: "Pain Medication:", value: painMedication },
+    { label: "Episiotomy Preference:", value: episiotomyPreference },
+    { label: "Umbilical Cord Cutting:", value: umbilicalCordCuttingPreference },
+    { label: "Placenta Viewing:", value: placentaViewing },
+    { label: "Contact with the Baby:", value: immediateContactPreference },
+    { label: "Breastfeeding:", value: breastfeeding },
+    { label: "Baby's First Bath:", value: babyFirstBath },
   ];
 
   fields.forEach((field, i) => {
@@ -49,8 +67,15 @@ export default function generatePDF({ motherName, babyName, expectedDueDate, sup
     doc.setFontSize(14);
     doc.setTextColor(190, 24, 93);
     doc.text(field.label, 15, y);
+
+    const valueText = Array.isArray(field.value)
+      ? field.value.join("   ")
+      : field.value;
+
     doc.setTextColor(68, 68, 68);
-    doc.text(field.value, 65, y);
+    const splittedText = doc.splitTextToSize(valueText || "", 120);
+    doc.text(splittedText, 65, y);
+    lineY += (splittedText.length - 1) * 6;
   });
 
   doc.save("my-birth-plan.pdf");

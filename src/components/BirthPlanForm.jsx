@@ -16,10 +16,14 @@ export default function BirthPlanForm({
   setBirthPlace,
   birthType,
   setBirthType,
+  environmentPreferences,
+  setEnvironmentPreferences,
   eatingDuringLabor,
   setEatingDuringLabor,
   mobilityDuringLabor,
   setMobilityDuringLabor,
+  reliefOptions,
+  setReliefOptions,
   painMedication,
   setPainMedication,
   episiotomyPreference,
@@ -116,10 +120,12 @@ export default function BirthPlanForm({
         legend="Environment Preferences"
         name="environment"
         options={[
-          { value: "dimLights", label: "Dim lights" },
-          { value: "quietRoom", label: "Quiet room" },
-          { value: "music", label: "Music" },
+          { value: "Dim lights", label: "Dim lights" },
+          { value: "Quiet room", label: "Quiet room" },
+          { value: "Music", label: "Music" },
         ]}
+        value={environmentPreferences}
+        onChange={setEnvironmentPreferences}
       />
 
       <RadioGroup
@@ -166,14 +172,16 @@ export default function BirthPlanForm({
         legend="Relief Options (Non-Pharmacological)"
         name="painRelief"
         options={[
-          { value: "bath", label: "Bath" },
-          { value: "massage", label: "Massage" },
-          { value: "birthingBall", label: "Birthing ball" },
-          { value: "squats", label: "Squats" },
-          { value: "walking", label: "Walking/ Deambulation" },
-          { value: "breathingTechniques", label: "Breathing Techniques" },
-          { value: "decideOnSpot", label: "Prefer to decide on the spot" },
+          { value: "Bath", label: "Bath" },
+          { value: "Massage", label: "Massage" },
+          { value: "Birthing ball", label: "Birthing ball" },
+          { value: "Squats", label: "Squats" },
+          { value: "Walking", label: "Walking/ Deambulation" },
+          { value: "Breathing techniques", label: "Breathing Techniques" },
+          { value: "Decide during labor", label: "Prefer to decide on the spot" },
         ]}
+        value={reliefOptions}
+        onChange={setReliefOptions}
       />
 
       <RadioGroup

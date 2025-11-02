@@ -12,9 +12,10 @@ export default function App() {
   const [supportPerson, setSupportPerson] = useState("");
   const [birthPlace, setBirthPlace] = useState("");
   const [birthType, setBirthType] = useState("");
-  
+  const [environmentPreferences, setEnvironmentPreferences] = useState([]);
   const [eatingDuringLabor, setEatingDuringLabor] = useState("");
   const [mobilityDuringLabor, setMobilityDuringLabor] = useState("");
+  const [reliefOptions, setReliefOptions] = useState([]);
   const [painMedication, setPainMedication] = useState("")
   const [episiotomyPreference, setEpisiotomyPreference] = useState("");
   const [umbilicalCordCuttingPreference, setUmbilicalCordCuttingPreference] = useState("");
@@ -41,10 +42,14 @@ export default function App() {
         setBirthPlace={setBirthPlace}
         birthType={birthType}
         setBirthType={setBirthType}
+        environmentPreferences={environmentPreferences}
+        setEnvironmentPreferences={setEnvironmentPreferences}
         eatingDuringLabor={eatingDuringLabor}
         setEatingDuringLabor={setEatingDuringLabor}
         mobilityDuringLabor={mobilityDuringLabor}
         setMobilityDuringLabor={setMobilityDuringLabor}
+        reliefOptions={reliefOptions}
+        setReliefOptions={setReliefOptions}
         painMedication={painMedication}
         setPainMedication={setPainMedication}
         episiotomyPreference={episiotomyPreference}
@@ -69,9 +74,10 @@ export default function App() {
             supportPerson,
             birthPlace,
             birthType,
-
+            environmentPreferences,
             eatingDuringLabor,
             mobilityDuringLabor,
+            reliefOptions,
             painMedication,
             episiotomyPreference,
             umbilicalCordCuttingPreference,
@@ -79,7 +85,7 @@ export default function App() {
             immediateContactPreference,
             breastfeeding,
             babyFirstBath,
-            
+
           })
         }
       />
