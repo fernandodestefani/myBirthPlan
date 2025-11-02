@@ -13,12 +13,14 @@ export default function generatePDF({
   mobilityDuringLabor,
   reliefOptions,
   painMedication,
+  laborPosition,
   episiotomyPreference,
   umbilicalCordCuttingPreference,
   placentaViewing,
   immediateContactPreference,
   breastfeeding,
   babyFirstBath,
+  notes,
 }) {
   const doc = new jsPDF();
 
@@ -54,12 +56,14 @@ export default function generatePDF({
     { label: "Mobility:", value: mobilityDuringLabor },
     { label: "Relief options:", value: reliefOptions },
     { label: "Pain Medication:", value: painMedication },
+    { label: "Labor Position:", value: laborPosition },
     { label: "Episiotomy Preference:", value: episiotomyPreference },
     { label: "Umbilical Cord Cutting:", value: umbilicalCordCuttingPreference },
     { label: "Placenta Viewing:", value: placentaViewing },
     { label: "Contact with the Baby:", value: immediateContactPreference },
     { label: "Breastfeeding:", value: breastfeeding },
     { label: "Baby's First Bath:", value: babyFirstBath },
+    { label: "Additional Notes:", value: notes},
   ];
 
   fields.forEach((field, i) => {

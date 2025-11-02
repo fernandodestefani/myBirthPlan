@@ -26,6 +26,8 @@ export default function BirthPlanForm({
   setReliefOptions,
   painMedication,
   setPainMedication,
+  laborPosition,
+  setLaborPosition,
   episiotomyPreference,
   setEpisiotomyPreference,
   umbilicalCordCuttingPreference, 
@@ -38,7 +40,8 @@ export default function BirthPlanForm({
   setBreastfeeding,
   babyFirstBath,
   setBabyFirstBath,
-
+  notes,
+  setNotes
 }) {
   return (
     <form>
@@ -221,19 +224,21 @@ export default function BirthPlanForm({
           id="expulsivePosition"
           required
           className="select-field__select"
+          value={laborPosition}
+          onChange={e => setLaborPosition(e.target.value)}
         >
           <option value="" disabled>
             Select an option
           </option>
-          <option value="semiReclined">Semi-reclined in bed</option>
-          <option value="squatting">Squatting</option>
-          <option value="supportedSquat">Squatting with support</option>
-          <option value="birthingStool">Birthing stool</option>
-          <option value="handsAndKnees">On all fours (Gaskin)</option>
-          <option value="sideLying">Side-lying</option>
-          <option value="standing">Standing</option>
-          <option value="freedomToChoose">Decide during labor</option>
-          <option value="noPreference">No preference</option>
+          <option value="Semi-reclined in bed">Semi-reclined in bed</option>
+          <option value="Squatting">Squatting</option>
+          <option value="Squatting with support">Squatting with support</option>
+          <option value="Birthing stool">Birthing stool</option>
+          <option value="On all fours">On all fours (Gaskin)</option>
+          <option value="Side-lying">Side-lying</option>
+          <option value="Standing">Standing</option>
+          <option value="Decide during labor">Decide during labor</option>
+          <option value="No preference">No preference</option>
         </select>
       </div>
 
@@ -371,6 +376,8 @@ export default function BirthPlanForm({
           rows="4"
           placeholder="Example: I would like to touch my baby’s head during crowning (the moment when the baby’s head becomes visible)..."
           className="textarea-field__textarea"
+          value={notes}
+          onChange={e => setNotes(e.target.value)}
         ></textarea>
       </fieldset>
 

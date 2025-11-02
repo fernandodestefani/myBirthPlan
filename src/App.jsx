@@ -16,14 +16,15 @@ export default function App() {
   const [eatingDuringLabor, setEatingDuringLabor] = useState("");
   const [mobilityDuringLabor, setMobilityDuringLabor] = useState("");
   const [reliefOptions, setReliefOptions] = useState([]);
-  const [painMedication, setPainMedication] = useState("")
+  const [painMedication, setPainMedication] = useState("");
+  const [laborPosition, setLaborPosition] = useState("");
   const [episiotomyPreference, setEpisiotomyPreference] = useState("");
   const [umbilicalCordCuttingPreference, setUmbilicalCordCuttingPreference] = useState("");
   const [placentaViewing, setPlacentaViewing] = useState('')
   const [immediateContactPreference, setImmediateContactPreference] = useState("");
   const [breastfeeding, setBreastfeeding] = useState("");
   const [babyFirstBath, setBabyFirstBath] = useState("");
-
+  const [notes, setNotes] = useState("");
 
   return (
     <div>
@@ -52,6 +53,8 @@ export default function App() {
         setReliefOptions={setReliefOptions}
         painMedication={painMedication}
         setPainMedication={setPainMedication}
+        laborPosition={laborPosition}
+        setLaborPosition={setLaborPosition}
         episiotomyPreference={episiotomyPreference}
         setEpisiotomyPreference={setEpisiotomyPreference}
         umbilicalCordCuttingPreference={umbilicalCordCuttingPreference}
@@ -64,6 +67,8 @@ export default function App() {
         setBreastfeeding={setBreastfeeding}
         babyFirstBath={babyFirstBath}
         setBabyFirstBath={setBabyFirstBath}
+        notes={notes}
+        setNotes={setNotes}
       />
       <ActionButtons
         onGeneratePDF={() =>
@@ -79,13 +84,14 @@ export default function App() {
             mobilityDuringLabor,
             reliefOptions,
             painMedication,
+            laborPosition,
             episiotomyPreference,
             umbilicalCordCuttingPreference,
             placentaViewing,
             immediateContactPreference,
             breastfeeding,
             babyFirstBath,
-
+            notes,
           })
         }
       />
