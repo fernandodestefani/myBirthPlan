@@ -63,7 +63,7 @@ export default function generatePDF({
     { label: "Contact with the Baby:", value: immediateContactPreference },
     { label: "Breastfeeding:", value: breastfeeding },
     { label: "Baby's First Bath:", value: babyFirstBath },
-    { label: "Additional Notes:", value: notes},
+    { label: "Additional Notes:", value: notes },
   ];
 
   fields.forEach((field, i) => {
@@ -81,6 +81,16 @@ export default function generatePDF({
     doc.text(splittedText, 65, y);
     lineY += (splittedText.length - 1) * 6;
   });
+
+  doc.setFont("quicksand", "italic");
+  doc.setFontSize(12);
+  doc.setTextColor(190, 24, 93);
+  const pageHeight = doc.internal.pageSize.height;
+  const marginBottom = 15;
+  const finalY = pageHeight - marginBottom;
+  const finalText = "These preferences may change depending on medical needs";
+  const splittedFinalText = doc.splitTextToSize(finalText, 180);
+  doc.text(splittedFinalText, 15, finalY);
 
   doc.save("my-birth-plan.pdf");
 }
