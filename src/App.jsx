@@ -4,6 +4,7 @@ import BirthPlanForm from "./components/BirthPlanForm";
 import { Header } from "./components/Header";
 import { Logo } from "./components/Logo";
 import generatePDF from "./assets/generatePDF";
+import Modal from "./components/Modal";
 
 export default function App() {
   const [motherName, setMotherName] = useState("");
@@ -59,6 +60,7 @@ export default function App() {
   return (
     <div>
       <Logo />
+      <Modal />
       <Header />
       <BirthPlanForm
         motherName={motherName}
