@@ -4,8 +4,6 @@ export default function Modal() {
       <h2 className="modal__title">Placenta Art - "Tree of Life"</h2>
       <div className="modal__video">
         <iframe
-          width="560"
-          height="315"
           src="https://www.youtube.com/embed/2SwFasZEvWI?si=FIDFuPGJPTRW9Jbu"
           title="YouTube video player"
           frameborder="0"

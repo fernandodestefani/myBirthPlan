@@ -313,10 +313,17 @@ select:focus {
   font-weight: 500;
   font-size: 18px;
   padding-bottom: 1.6rem;
+  text-align: center;
+}
+.modal__video {
+  width: 70%;
+  margin: 0 auto;
+  overflow: hidden; 
+  border-radius: 5px;
 }
 .modal__video iframe {
-  border-radius: 5px;
-  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 16 / 9;
   display: block;
   border: none;
 }
