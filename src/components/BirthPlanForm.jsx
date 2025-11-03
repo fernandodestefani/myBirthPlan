@@ -41,12 +41,12 @@ export default function BirthPlanForm({
   babyFirstBath,
   setBabyFirstBath,
   notes,
-  setNotes
+  setNotes,
 }) {
   return (
     <form>
       <BirthFormNote>
-        Fields marked with <span>*</span> are required.
+        Fields marked with <span>*</span> are recommended — filling them helps create a more personalized birth plan.
       </BirthFormNote>
 
       <InputField

@@ -34,7 +34,7 @@ export default function App() {
     );
 
     if (!confirmed) return;
-
+    
     setMotherName("");
     setBabyName("");
     setExpectedDueDate("");

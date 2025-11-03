@@ -32,7 +32,7 @@ export default function generatePDF({
   doc.addImage(logoBase64, "JPEG", imgX, imgY, imgWidth, imgHeight);
 
   // title
-  doc.setFont("quicksand", "sans-serif");
+  doc.setFont("helvetica", "normal");
   doc.setFontSize(24);
   doc.text("My Birth Plan", imgX + imgWidth + 10, (imgY + imgHeight) / 2 + 10);
 
@@ -67,7 +67,14 @@ export default function generatePDF({
   ];
 
   fields.forEach((field, i) => {
-    const y = lineY + 10 + i * 10;
+    if (
+      !field.value ||
+      (Array.isArray(field.value) && field.value.length === 0)
+    ) {
+      return;
+    }
+
+    const y = lineY + 10;
     doc.setFontSize(14);
     doc.setTextColor(190, 24, 93);
     doc.text(field.label, 15, y);
@@ -79,10 +86,10 @@ export default function generatePDF({
     doc.setTextColor(68, 68, 68);
     const splittedText = doc.splitTextToSize(valueText || "", 120);
     doc.text(splittedText, 65, y);
-    lineY += (splittedText.length - 1) * 6;
+    lineY += 10 + (splittedText.length - 1) * 6;
   });
 
-  doc.setFont("quicksand", "italic");
+  doc.setFont("helvetica", "italic");
   doc.setFontSize(12);
   doc.setTextColor(190, 24, 93);
   const pageHeight = doc.internal.pageSize.height;
