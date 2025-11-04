@@ -343,7 +343,7 @@ select:focus {
   width: 100%;
   margin: 0.8rem auto 1.6rem auto;
   overflow: hidden;
-  border-radius: 5px;;
+  border-radius: 5px;
 }
 .modal__video iframe {
   width: 100%;
@@ -408,4 +408,25 @@ select:focus {
 
 .modal__animate {
   animation: modalFadeIn 0.25s ease-out;
+}
+
+/* ==========================================
+MEDIA QUERIES
+========================================== */
+@media (max-width: 26rem) {
+  /* Bellow 416px */
+  .header__img {
+    width: 125px;
+    height: auto;
+  }
+
+  .header__title {
+    font-size: 24px;
+    letter-spacing: -0.6px;
+    line-height: 1.6;
+  }
+
+  .header__subtitle {
+    font-size: 16px;
+  }
 }
