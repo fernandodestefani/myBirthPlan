@@ -1,42 +1,28 @@
-export default function Modal({onClose}) {
-  return (
-    <div className="modal__container">
-      <div
-        className="modal__close"
-        onClick={onClose}
-      >
-        ❌
-      </div>
+import { useEffect } from "react";
 
-      <h2 className="modal__title">Placenta Art - "Tree of Life"</h2>
-      <div className="modal__video">
-        <iframe
-          src="https://www.youtube.com/embed/2SwFasZEvWI?si=FIDFuPGJPTRW9Jbu"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen
-          webkitallowfullscreen
-          mozallowfullscreen
-        ></iframe>
-      </div>
-      <div className="modal__text">
-        <p className="modal__paragraph">
-          Coloring the placenta, also known as placenta printing or Tree of Life
-          art, is a popular and humanized way to create an artistic and
-          emotional keepsake of childbirth.
-        </p>
-        <p className="modal__paragraph">
-          In Brazil, the practice is allowed carried out in many hospitals,
-          including those in the public system (SUS).
-        </p>
-        <p className="modal__paragraph">
-          The print is made by gently pressing the fetal side of the placenta
-          onto paper, using its natural blood or colored pigments (like gouache
-          or food dye). The result resembles a tree — symbolizing life, growth,
-          and the connection between mother and child.
-        </p>
+export default function Modal({ onClose, title, children }) {
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = "auto";
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [onClose]);
+
+  return (
+    <div className="modal__overlay" onClick={onClose}>
+      <div className="modal__container" onClick={(e) => e.stopPropagation()}>
+        <div className="modal__close" onClick={onClose}>
+          ❌
+        </div>
+        <h2 className="modal__title">{title}</h2>
+        {children}
       </div>
     </div>
   );

@@ -5,6 +5,7 @@ import { RadioGroup } from "./RadioGroup";
 import Modal from "./Modal";
 import { useState } from "react";
 import { FiHelpCircle } from "react-icons/fi";
+import PlacentaContent from "./PlacentaContent";
 
 export default function BirthPlanForm({
   motherName,
@@ -414,11 +415,9 @@ export default function BirthPlanForm({
       </BirthFormNote>
 
       {isModalOpen && (
-        <div className="modal__overlay" onClick={closeModal}>
-          <div onClick={(e) => e.stopPropagation()}>
-            <Modal onClose={closeModal}/>
-          </div>
-        </div>
+        <Modal onClose={closeModal} title='Placenta Art - "Tree of Life"'>
+          <PlacentaContent />
+        </Modal>
       )}
     </form>
   );
