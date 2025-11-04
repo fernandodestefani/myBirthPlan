@@ -6,6 +6,7 @@ import Modal from "./Modal";
 import { useState } from "react";
 import { FiHelpCircle } from "react-icons/fi";
 import PlacentaContent from "./PlacentaContent";
+import EpisiotomiaContent from "./EpisiotomyContent";
 
 export default function BirthPlanForm({
   motherName,
@@ -47,13 +48,13 @@ export default function BirthPlanForm({
   notes,
   setNotes,
 }) {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  function openModal() {
-    setIsModalOpen(true);
-  }
-  function closeModal() {
-    setIsModalOpen(false);
-  }
+  const [isPlacentaModalOpen, setIsPlacentaModalOpen] = useState(false);
+  const [isEpisiotomyModalOpen, setIsEpisiotomyModalOpen] = useState(false);
+
+  const openPlacentaModal = () => setIsPlacentaModalOpen(true);
+  const closePlacentaModal = () => setIsPlacentaModalOpen(false);
+  const openEpisiotomyModal = () => setIsEpisiotomyModalOpen(true);
+  const closeEpisiotomyModal = () => setIsEpisiotomyModalOpen(false);
 
   return (
     <form id="birthPlanForm">
@@ -257,7 +258,16 @@ export default function BirthPlanForm({
       </div>
 
       <RadioGroup
-        legend="Episiotomy Preference"
+        legend={
+          <span style={{ color: "#555" }}>
+            Episiotomy Preference
+            <FiHelpCircle
+              className="help-icon"
+              onClick={openEpisiotomyModal}
+              title="Learn more about Placenta Art"
+            />
+          </span>
+        }
         name="episiotomyPreference"
         required={false}
         options={[
@@ -309,7 +319,7 @@ export default function BirthPlanForm({
             Placenta Viewing Preference
             <FiHelpCircle
               className="help-icon"
-              onClick={openModal}
+              onClick={openPlacentaModal}
               title="Learn more about Placenta Art"
             />
           </span>
@@ -414,9 +424,15 @@ export default function BirthPlanForm({
         These preferences may change depending on medical needs
       </BirthFormNote>
 
-      {isModalOpen && (
-        <Modal onClose={closeModal} title='Placenta Art - "Tree of Life"'>
+      {isPlacentaModalOpen && (
+        <Modal onClose={closePlacentaModal} title='Placenta Art - "Tree of Life"'>
           <PlacentaContent />
+        </Modal>
+      )}
+
+      {isEpisiotomyModalOpen && (
+        <Modal onClose={closeEpisiotomyModal} title="Episiotomy">
+          <EpisiotomiaContent />
         </Modal>
       )}
     </form>
