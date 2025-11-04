@@ -315,9 +315,7 @@ select:focus {
 
 .modal__container {
   max-width: 90vh;
-  width: 90%;
   max-height: 90vh;
-  height: 90%;
   padding: 3.2rem;
   padding-bottom: 2.4rem;
   background-color: #be185d;
@@ -338,14 +336,14 @@ select:focus {
   letter-spacing: 0.5;
   font-weight: 500;
   font-size: 18px;
-  padding-bottom: 1.6rem;
+  padding-bottom: 1.2rem;
   text-align: center;
 }
 .modal__video {
   width: 100%;
-  margin: 0 auto;
+  margin: 0.8rem auto 1.6rem auto;
   overflow: hidden;
-  border-radius: 5px;
+  border-radius: 5px;;
 }
 .modal__video iframe {
   width: 100%;
@@ -354,7 +352,7 @@ select:focus {
   border: none;
 }
 .modal__text {
-  margin-top: 1.6rem;
+  margin-top: 0.8rem;
   font-size: 14px;
   line-height: 1.6;
   font-family: "Quicksand", sans-serif;
@@ -395,4 +393,19 @@ select:focus {
 
 .help-icon:hover {
   transform: scale(1.2);
+}
+
+@keyframes modalFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.modal__animate {
+  animation: modalFadeIn 0.25s ease-out;
 }

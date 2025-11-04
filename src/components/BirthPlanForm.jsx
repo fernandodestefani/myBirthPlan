@@ -431,7 +431,7 @@ export default function BirthPlanForm({
       )}
 
       {isEpisiotomyModalOpen && (
-        <Modal onClose={closeEpisiotomyModal} title="Episiotomy">
+        <Modal onClose={closeEpisiotomyModal} title="What is Episiotomy?">
           <EpisiotomiaContent />
         </Modal>
       )}
