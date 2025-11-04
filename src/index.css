@@ -318,6 +318,7 @@ select:focus {
   width: 90%;
   max-height: 90vh;
   height: 90%;
+  margin: 0 auto;
   padding: 3.2rem;
   background-color: #be185d;
   color: rgb(223, 223, 223);
@@ -341,7 +342,7 @@ select:focus {
   text-align: center;
 }
 .modal__video {
-  width: 95%;
+  width: 100%;
   margin: 0 auto;
   overflow: hidden;
   border-radius: 5px;

@@ -55,10 +55,9 @@ export default function BirthPlanForm({
   }
 
   return (
-    <form>
+    <form id="birthPlanForm">
       <BirthFormNote>
-        Fields marked with <span>*</span> are recommended — filling them helps
-        create a more personalized birth plan.
+        Fields marked with <span>*</span> are required
       </BirthFormNote>
 
       <InputField
@@ -109,7 +108,7 @@ export default function BirthPlanForm({
       <RadioGroup
         legend="Place of Birth Preference"
         name="birthPlace"
-        required={true}
+        required={false}
         options={[
           { value: "Hospital", label: "Hospital", isFirst: true },
           { value: "BirthCenter", label: "Birth Center" },
@@ -122,7 +121,7 @@ export default function BirthPlanForm({
       <RadioGroup
         legend="Birth Type Preference"
         name="birthTypePreference"
-        required={true}
+        required={false}
         options={[
           { value: "Vaginal birth", label: "Vaginal birth", isFirst: true },
           { value: "Cesarean", label: "Cesarean" },
@@ -146,7 +145,7 @@ export default function BirthPlanForm({
       <RadioGroup
         legend="Eating During Labor"
         name="eatingPreference"
-        required={true}
+        required={false}
         options={[
           {
             value: "Eat freely according to tolerance",
@@ -166,7 +165,7 @@ export default function BirthPlanForm({
       <RadioGroup
         legend="Mobility During Labor"
         name="mobility"
-        required={true}
+        required={false}
         options={[
           {
             value: "Freedom to walk and move",
@@ -205,7 +204,7 @@ export default function BirthPlanForm({
       <RadioGroup
         legend="Medication for pain relief"
         name="medicationPainRelief"
-        required={true}
+        required={false}
         options={[
           {
             value: "As soon as possible",
@@ -237,7 +236,6 @@ export default function BirthPlanForm({
         <select
           name="expulsivePosition"
           id="expulsivePosition"
-          required
           className="select-field__select"
           value={laborPosition}
           onChange={(e) => setLaborPosition(e.target.value)}
@@ -258,9 +256,9 @@ export default function BirthPlanForm({
       </div>
 
       <RadioGroup
-        legend="Episiotomy Preference (a surgical cut made in the area between the vagina and the anus during childbirth to enlarge the vaginal opening)"
+        legend="Episiotomy Preference"
         name="episiotomyPreference"
-        required={true}
+        required={false}
         options={[
           {
             value: "Episiotomy only as a last resort",
@@ -287,7 +285,7 @@ export default function BirthPlanForm({
       <RadioGroup
         legend="Umbilical Cord Cutting Preference"
         name="cordCuttingPreference"
-        required={true}
+        required={false}
         options={[
           {
             value: "My partner cuts the cord",
@@ -339,7 +337,7 @@ export default function BirthPlanForm({
       <RadioGroup
         legend="Imediate Contact with the Baby"
         name="contact"
-        required={true}
+        required={false}
         options={[
           {
             value: "Placed directly on my chest for skin-to-skin contact",
@@ -354,7 +352,7 @@ export default function BirthPlanForm({
       <RadioGroup
         legend="Feeding within the first hour after birth"
         name="feeding"
-        required={true}
+        required={false}
         options={[
           {
             value: "I wanna try breastfeeding within the first hour",
@@ -373,7 +371,7 @@ export default function BirthPlanForm({
       <RadioGroup
         legend="Regarding the baby’s first bath"
         name="first-bath"
-        required={true}
+        required={false}
         options={[
           {
             value: "Staff bath — I’m present",

@@ -22,6 +22,11 @@ export default function generatePDF({
   babyFirstBath,
   notes,
 }) {
+  if (!motherName) {
+    alert("Please fill in the mother's name before generating the birth plan")
+    return;
+  }
+
   const doc = new jsPDF();
 
   // logo
