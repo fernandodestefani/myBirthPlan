@@ -415,6 +415,10 @@ MEDIA QUERIES
 ========================================== */
 @media (max-width: 26rem) {
   /* Bellow 416px */
+  .header {
+    padding-bottom: 8px;
+  }
+
   .header__img {
     width: 125px;
     height: auto;
@@ -428,5 +432,9 @@ MEDIA QUERIES
 
   .header__subtitle {
     font-size: 16px;
+  }
+
+  form {
+    padding-top: 0.8rem;
   }
 }
