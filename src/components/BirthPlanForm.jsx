@@ -2,6 +2,9 @@ import { BirthFormNote } from "./BirthFormNote";
 import { CheckboxGroup } from "./CheckboxGroup";
 import { InputField } from "./InputField";
 import { RadioGroup } from "./RadioGroup";
+import Modal from "./Modal";
+import { useState } from "react";
+import { FiHelpCircle } from "react-icons/fi";
 
 export default function BirthPlanForm({
   motherName,
@@ -30,23 +33,32 @@ export default function BirthPlanForm({
   setLaborPosition,
   episiotomyPreference,
   setEpisiotomyPreference,
-  umbilicalCordCuttingPreference, 
+  umbilicalCordCuttingPreference,
   setUmbilicalCordCuttingPreference,
-  placentaViewing, 
+  placentaViewing,
   setPlacentaViewing,
   immediateContactPreference,
   setImmediateContactPreference,
-  breastfeeding, 
+  breastfeeding,
   setBreastfeeding,
   babyFirstBath,
   setBabyFirstBath,
   notes,
   setNotes,
 }) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  function openModal() {
+    setIsModalOpen(true);
+  }
+  function closeModal() {
+    setIsModalOpen(false);
+  }
+
   return (
     <form>
       <BirthFormNote>
-        Fields marked with <span>*</span> are recommended — filling them helps create a more personalized birth plan.
+        Fields marked with <span>*</span> are recommended — filling them helps
+        create a more personalized birth plan.
       </BirthFormNote>
 
       <InputField
@@ -181,7 +193,10 @@ export default function BirthPlanForm({
           { value: "Squats", label: "Squats" },
           { value: "Walking", label: "Walking/ Deambulation" },
           { value: "Breathing techniques", label: "Breathing Techniques" },
-          { value: "Decide during labor", label: "Prefer to decide on the spot" },
+          {
+            value: "Decide during labor",
+            label: "Prefer to decide on the spot",
+          },
         ]}
         value={reliefOptions}
         onChange={setReliefOptions}
@@ -225,7 +240,7 @@ export default function BirthPlanForm({
           required
           className="select-field__select"
           value={laborPosition}
-          onChange={e => setLaborPosition(e.target.value)}
+          onChange={(e) => setLaborPosition(e.target.value)}
         >
           <option value="" disabled>
             Select an option
@@ -260,10 +275,13 @@ export default function BirthPlanForm({
             value: "Natural tearing over episiotomy",
             label: "Natural tearing over episiotomy",
           },
-          { value: "I prefer the team to decide", label: "I prefer the team to decide" },
+          {
+            value: "I prefer the team to decide",
+            label: "I prefer the team to decide",
+          },
         ]}
         value={episiotomyPreference}
-        onChange={e => setEpisiotomyPreference(e.target.value)}
+        onChange={(e) => setEpisiotomyPreference(e.target.value)}
       />
 
       <RadioGroup
@@ -283,13 +301,22 @@ export default function BirthPlanForm({
           { value: "No preference", label: "No preference" },
         ]}
         value={umbilicalCordCuttingPreference}
-        onChange={e => setUmbilicalCordCuttingPreference(e.target.value)}
+        onChange={(e) => setUmbilicalCordCuttingPreference(e.target.value)}
       />
 
       <RadioGroup
-        legend="Placenta Viewing Preference"
+        legend={
+          <span style={{ color: "#555" }}>
+            Placenta Viewing Preference
+            <FiHelpCircle
+              className="help-icon"
+              onClick={openModal}
+              title="Learn more about Placenta Art"
+            />
+          </span>
+        }
         name="placentaPreference"
-        required={true}
+        required={false}
         options={[
           {
             value: "I'd like to see the placenta after it is delivered",
@@ -300,10 +327,13 @@ export default function BirthPlanForm({
             value: "I do not want to see the placenta",
             label: "I do not want to see the placenta",
           },
-          { value: "I have a special request", label: "I have a special request" },
+          {
+            value: "I have a special request",
+            label: "I have a special request",
+          },
         ]}
         value={placentaViewing}
-        onChange={e => setPlacentaViewing(e.target.value)}
+        onChange={(e) => setPlacentaViewing(e.target.value)}
       />
 
       <RadioGroup
@@ -318,7 +348,7 @@ export default function BirthPlanForm({
           { value: "No preference", label: "No preference" },
         ]}
         value={immediateContactPreference}
-        onChange={e => setImmediateContactPreference(e.target.value)}
+        onChange={(e) => setImmediateContactPreference(e.target.value)}
       />
 
       <RadioGroup
@@ -337,7 +367,7 @@ export default function BirthPlanForm({
           { value: "No preference", label: "No preference" },
         ]}
         value={breastfeeding}
-        onChange={e => setBreastfeeding(e.target.value)}
+        onChange={(e) => setBreastfeeding(e.target.value)}
       />
 
       <RadioGroup
@@ -363,7 +393,7 @@ export default function BirthPlanForm({
           },
         ]}
         value={babyFirstBath}
-        onChange={e => setBabyFirstBath(e.target.value)}
+        onChange={(e) => setBabyFirstBath(e.target.value)}
       />
 
       <fieldset className="textarea-field">
@@ -377,13 +407,21 @@ export default function BirthPlanForm({
           placeholder="Example: I would like to touch my baby’s head during crowning (the moment when the baby’s head becomes visible)..."
           className="textarea-field__textarea"
           value={notes}
-          onChange={e => setNotes(e.target.value)}
+          onChange={(e) => setNotes(e.target.value)}
         ></textarea>
       </fieldset>
 
       <BirthFormNote>
         These preferences may change depending on medical needs
       </BirthFormNote>
+
+      {isModalOpen && (
+        <div className="modal__overlay" onClick={closeModal}>
+          <div onClick={(e) => e.stopPropagation()}>
+            <Modal onClose={closeModal}/>
+          </div>
+        </div>
+      )}
     </form>
   );
 }

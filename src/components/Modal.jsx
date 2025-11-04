@@ -1,6 +1,13 @@
-export default function Modal() {
+export default function Modal({onClose}) {
   return (
     <div className="modal__container">
+      <div
+        className="modal__close"
+        onClick={onClose}
+      >
+        ❌
+      </div>
+
       <h2 className="modal__title">Placenta Art - "Tree of Life"</h2>
       <div className="modal__video">
         <iframe
