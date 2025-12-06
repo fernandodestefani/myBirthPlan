@@ -32,7 +32,7 @@ MyBirthPlan was developed using:
 ## 📸 Preview
 
 **🖥️ Desktop Version**
-<img width="830" height="615" alt="desktop" src="https://github.com/user-attachments/assets/4f4d6c2b-92f7-4a8a-9eee-a77b983d527d" />
+<img width="531" height="431" alt="desktop" src="https://github.com/user-attachments/assets/4f4d6c2b-92f7-4a8a-9eee-a77b983d527d" />
 
 **📱 Mobile Version**  
 <img width="256" height="410" alt="smartphone" src="https://github.com/user-attachments/assets/f7357968-f8e2-4870-b933-c6ee96ae0e5d" />
