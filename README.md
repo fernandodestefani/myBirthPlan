@@ -43,17 +43,3 @@ MyBirthPlan was developed using:
 ## 🔗 Live Demo
 
 👉 **MyBirthPlan Website:** https://mybirthplan.netlify.app/
-
----
-
-## 📬 Background & Community Question
-
-If you’ve been through pregnancy:  
-**Did you create a birth plan? What was your experience, and did you use any specific tool?**  
-I’d love to hear how this project compares and what could be improved.
-
----
-
-## ⭐ Support
-
-If this project helps you, inspires you, or you believe it can support more families and clinicians, feel free to **star this repository**!
