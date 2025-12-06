@@ -1,14 +1,6 @@
 # 🤰 MyBirthPlan — Personalized Birth Plan Generator
 
-MyBirthPlan is a minimalist and responsive web application designed to support prenatal care by helping pregnant women and clinicians build a clear, personalized birth plan.
-
-In Brazil, developing and discussing a birth plan during prenatal appointments has become increasingly recommended — especially because **Brazil is one of the countries with the highest cesarean-section rates in the world**.  
-As a general practitioner, I saw how a structured birth plan could empower patients, promote shared decision-making, and improve the overall childbirth experience.  
-
-Yet I struggled to find a simple, accessible, and locally adaptable tool.  
-So I decided to build my own.
-
-This app uses straightforward language, works across devices, and generates a downloadable PDF. It can be printed and attached to the prenatal booklet or copied into the patient’s medical record, making it practical for everyday clinical use.
+MyBirthPlan is a minimalist and responsive web application that helps pregnant women and clinicians create a clear, personalized birth plan. In Brazil—one of the countries with the highest C-section rates—birth plans have become increasingly important during prenatal care. As a general practitioner, I saw the need for a simple and locally adaptable tool, so I built one. The app uses straightforward language, works across devices, and generates a printable PDF that can be attached to the prenatal booklet or added to the medical record.
 
 ---
 
@@ -40,10 +32,10 @@ MyBirthPlan was developed using:
 ## 📸 Preview
 
 **🖥️ Desktop Version**
-<img width="1188" height="881" alt="desktop" src="https://github.com/user-attachments/assets/4f4d6c2b-92f7-4a8a-9eee-a77b983d527d" />
+<img width="830" height="615" alt="desktop" src="https://github.com/user-attachments/assets/4f4d6c2b-92f7-4a8a-9eee-a77b983d527d" />
 
 **📱 Mobile Version**  
-<img width="502" height="820" alt="smartphone" src="https://github.com/user-attachments/assets/f7357968-f8e2-4870-b933-c6ee96ae0e5d" />
+<img width="256" height="410" alt="smartphone" src="https://github.com/user-attachments/assets/f7357968-f8e2-4870-b933-c6ee96ae0e5d" />
 
 ---
 
